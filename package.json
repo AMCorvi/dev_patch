@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "pretest": "rimraf ./specs/test.db && touch ./specs/test.db",
+    "pretest": "rimraf ./specs/test.db && touch ./specs/test.db && sleep 4",
     "test": " NODE_ENV=test jest",
     "predbup": "knex migrate:rollback",
     "dbup": "knex migrate:latest && knex seed:run",

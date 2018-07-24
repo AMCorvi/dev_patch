@@ -4,7 +4,7 @@ const db = require('../db/queries')
 
 router.get('/', (req, res) => {
   db.findAll().then(data =>
-    res.json({messages: data})
+    res.json({message: data})
   )
 })
 
