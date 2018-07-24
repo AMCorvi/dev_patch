@@ -1,9 +1,17 @@
 {
-  "name": "knex2",
+  "name": "dev_stickers",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www",
+    "pretest": "rimraf ./specs/test.db && touch ./specs/test.db",
+    "test": " NODE_ENV=test jest",
+    "predbup": "knex migrate:rollback",
+    "dbup": "knex migrate:latest && knex seed:run",
+    "dbdwn": "knex migrate:rollback",
+    "predbup:test": "knex --env test  migrate:rollback",
+    "dbup:test": "knex --env test migrate:latest && knex --env test seed:run",
+    "dbdwn:test": "knex --env test migrate:rollback"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -13,6 +21,16 @@
     "knex": "0.15.2",
     "morgan": "~1.9.0",
     "pg": "7.4.3",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "sqlite3": "4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "5.2.0",
+    "eslint-plugin-jest": "21.18.0",
+    "eslint-plugin-react": "7.10.0",
+    "jest": "23.4.1",
+    "nodemon": "1.18.3",
+    "rimraf": "2.6.2",
+    "supertest": "3.1.0"
   }
 }
