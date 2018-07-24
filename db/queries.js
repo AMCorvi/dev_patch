@@ -4,5 +4,11 @@ module.exports = {
   findAll: function() {
     return knex('sticker').select('*')
   }
-  ,noop: () => {}
+
+  ,findOne: function(id) {
+    return knex('sticker')
+      .where('id', id)
+      .first()
+
+  }
 }

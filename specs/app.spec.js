@@ -39,4 +39,18 @@ describe('sticker api', () => {
       })
   })
 
+  test("findOne /api/v1/stickers", function (done) {
+
+    request(app)
+      .get('/api/v1/stickers/2')
+      .set('Accept', 'application/json')
+      .expect('Content-Type',/json/)
+      .expect(200)
+      .then(res => {
+        expect(res.body).toBeInstanceOf(Object)
+        expect(typeof (res.body.message)).toBe('object')
+        expect(res.body.message.title).toBe('Rainbow JavaScript')
+        done()
+      })
+  })
 })
