@@ -2,11 +2,11 @@ const knex = require('./knex')
 
 module.exports = {
   findAll: function() {
-    return knex('sticker').select('*')
+    return knex('patch').select('*')
   }
 
   ,findOne: function(id) {
-    return knex('sticker')
+    return knex('patch')
       .where('id', id)
       .first()
 

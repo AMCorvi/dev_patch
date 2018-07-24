@@ -1,3 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sticker api findAll /api/v1/stickers 1`] = `Array []`;
+exports[`patchapi findAll /api/v1/patches 1`] = `
+Array [
+  Object {
+    "description": "JS Logo",
+    "id": 1,
+    "rating": 10,
+    "title": "JavaScript",
+    "url": "http://devstickers.com/assets/img/pro/i4eg.png",
+  },
+  Object {
+    "description": "JS Logo with Rainbow",
+    "id": 2,
+    "rating": 10,
+    "title": "Rainbow JavaScript",
+    "url": "http://devstickers.com/assets/img/pro/mw2g.png",
+  },
+  Object {
+    "description": "ES6 Logo",
+    "id": 3,
+    "rating": 7,
+    "title": "ES6",
+    "url": "http://devstickers.com/assets/img/pro/i0dq.png",
+  },
+  Object {
+    "description": "JS Beer Logo",
+    "id": 4,
+    "rating": 7,
+    "title": "JavaScript Beer",
+    "url": "http://devstickers.com/assets/img/pro/m539.png",
+  },
+  Object {
+    "description": "node.js hexagon logo",
+    "id": 5,
+    "rating": 9,
+    "title": "node.js hexagon",
+    "url": "http://devstickers.com/assets/img/pro/iuw5.png",
+  },
+  Object {
+    "description": "node.js solid hexagon logo",
+    "id": 6,
+    "rating": 8,
+    "title": "node.js solid hexagon",
+    "url": "http://devstickers.com/assets/img/pro/kh7x.png",
+  },
+  Object {
+    "description": "npm logo in cube",
+    "id": 7,
+    "rating": 6,
+    "title": "npm cube",
+    "url": "http://devstickers.com/assets/img/pro/nrc3.png",
+  },
+  Object {
+    "description": "chai.js logo",
+    "id": 8,
+    "rating": 6,
+    "title": "chai",
+    "url": "http://devstickers.com/assets/img/pro/5awx.png",
+  },
+  Object {
+    "description": "mocha.js logo",
+    "id": 9,
+    "rating": 7,
+    "title": "mocha",
+    "url": "http://devstickers.com/assets/img/pro/4gem.png",
+  },
+]
+`;

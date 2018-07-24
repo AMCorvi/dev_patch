@@ -3,7 +3,7 @@ const request = require('supertest')
 
 const app = require('../app')
 
-describe('sticker api', () => {
+describe('patchapi', () => {
   beforeAll(function(done) {
     db.migrate.latest().then(function() {
       db.seed.run()
@@ -20,14 +20,12 @@ describe('sticker api', () => {
         expect(typeof res.body.error).toBe('object')
         done()
       })
-
-
   })
 
-  test("findAll /api/v1/stickers", function (done) {
+  test("findAll /api/v1/patches", function (done) {
 
     request(app)
-      .get('/api/v1/stickers')
+      .get('/api/v1/patches')
       .set('Accept', 'application/json')
       .expect('Content-Type',/json/)
       .expect(200)
@@ -39,10 +37,10 @@ describe('sticker api', () => {
       })
   })
 
-  test("findOne /api/v1/stickers", function (done) {
+  test("findOne /api/v1/patches/2", function (done) {
 
     request(app)
-      .get('/api/v1/stickers/2')
+      .get('/api/v1/patches/2')
       .set('Accept', 'application/json')
       .expect('Content-Type',/json/)
       .expect(200)
@@ -53,4 +51,6 @@ describe('sticker api', () => {
         done()
       })
   })
+
+   // x_test("creat /api/vi/patch")
 })

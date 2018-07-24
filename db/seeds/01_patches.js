@@ -1,10 +1,10 @@
-const stickerSeed = require('./seedData/stickerSeed')
+const patchSeed = require('./seedData/patchSeed')
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('sticker')
+  return knex('patch')
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex('sticker').insert(stickerSeed)
+      return knex('patch').insert(patchSeed)
     })
 }

@@ -1,5 +1,5 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('sticker', table => {
+  return knex.schema.createTable('patch', table => {
     table.increments()
     table.text('title')
     table.text('description')
@@ -9,5 +9,5 @@ exports.up = function(knex, Promise) {
 }
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('sticker')
+  return knex.schema.dropTable('patch')
 }
