@@ -6,4 +6,4 @@ const env_config = config[environment]
 
 const dbConnection = knex(env_config)
 
-module.export = dbConnection
+module.exports = dbConnection

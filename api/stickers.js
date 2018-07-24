@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const db = require('../db/queries')
 
 router.get('/', (req, res) => {
-  res.json({
-    messages: '✅'
-  })
+  db.findAll().then(data =>
+    res.json({messages: data})
+  )
 })
 
 module.exports = router

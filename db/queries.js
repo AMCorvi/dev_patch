@@ -1,7 +1,8 @@
-const knex = ('./knex')
+const knex = require('./knex')
 
 module.exports = {
-  getAll: function () {
-
+  findAll: function() {
+    return knex('sticker').select('*')
   }
+  ,noop: () => {}
 }
