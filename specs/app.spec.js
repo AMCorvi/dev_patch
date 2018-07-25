@@ -33,7 +33,8 @@ describe('patchapi', () => {
         expect(res.body.message).toEqual('Not Found')
         expect(typeof res.body.error).toBe('object')
         done()
-      }).catch(err => {
+      })
+      .catch(err => {
         throw err
       })
   })
@@ -65,7 +66,6 @@ describe('patchapi', () => {
       })
   })
 
-
   test('POST on /api/v1/patches', function(done) {
     request(app)
       .post('/api/v1/patches')
@@ -82,18 +82,42 @@ describe('patchapi', () => {
   })
 
   test('PATCH on /api/v1/patches', function(done) {
+    const new_new_patch = Object.assign({}, new_patch, { rating: 100 })
+
+    // Note: this is dependent on the previous test
     request(app)
-      .post('/api/v1/patches')
-      .send(new_patch)
+      .patch('/api/v1/patches/10')
+      .send(new_new_patch)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
       .then(res => {
         expect(is.object(res.body)).toEqual(true)
-        expect(res.body.message[0]).toHaveProperty('title', 'Hack The Planet')
+        expect(res.body.message[0].title).toHaveProperty('Hack The Planet')
+        expect(res.body.message[0].rating).toEqual(100)
         expect(res.body.message[0]).toMatchObject(new_patch)
         done()
       })
   })
 
+  test('remove patch', function(done) {
+    request(app)
+      .delete('/api/v1/patches/1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then(res => {
+        expect(res.body.message).toEqual(' Patch #1 was successfully removed ')
+      })
+
+    request(app)
+      .get('/api/v1/patches')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then(res => {
+        expect(res.body.message[0].title).toEqual('Rainbow JavaScript')
+        done()
+      })
+  })
 })
