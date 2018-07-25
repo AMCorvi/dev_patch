@@ -22,6 +22,8 @@ app.use('/api/v1/patches', patches)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  const is = require("is-type-of")
+  if (is.error(req) === 'error' ) console.log(req)
   const err = new Error('Not Found')
   err.status = 404
   next(err)
